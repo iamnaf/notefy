@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Notefy{% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>Welcome to Notefy</h1>
+        <p>Local Date and Time is {{ moment(current_time).format('LLLL') }}</p>
+        <hr>
+        <div>
+            {% for note in notes %}
+                <h1><a href="{{ url_for('main.note_view') }}">Title: {{ note.title }}</a></h1>
+                <h2>Author: {{ note.author|title }}</h2>
+                <h2>Published: {{ moment(note.pub_date).format('LLLL') }}</h2
+                <p> {{ note.body }}</p>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

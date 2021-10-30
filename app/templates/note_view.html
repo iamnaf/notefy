@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block page_content %}
+    <div>
+        <h3>Note Title: {{ post.title|title }}</h3>
+        <h4>Note Author: {{ post.author|title }}</h4>
+        <h4>Published: {{ moment(post.pub_date).format('LLLL') }}</h4><hr>
+        <p>{{ post.body }}</p>
+{% endblock %}
